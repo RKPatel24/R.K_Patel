@@ -45,7 +45,7 @@ void main()
 	{
 		for(j=i;j<5;j++)
 			{
-			if(roll[i]<roll[j])
+			if(roll[i]<roll[j]) 
 			{
 				t=roll[i];
 				roll[i]=roll[j];
