@@ -1,0 +1,77 @@
+    MODULE: 3 (HTML 5)
+
+1.  What are the new tags added in HTML5? 
+    Structural or Semantic Tags:
+    <article>       It defines the independent or self-contained content of a webpage.
+    <aside>         It defines the content which provides information about the main content.
+    <bdi>           It is used to isolate the part of text which might be formatted in another direction
+    <details>       It defines additional information which only visible as per user demand
+    <dialog>        It represents a dialog box or other interactive components.
+    <figcaption>    It defines caption for the <figure> element.
+    <figure>        It defines a self-contained content, and referenced as a single unit.
+    <footer>        It represents the footer section of the webpage.
+    <header>        It defines the introductory or navigational content of the webpage.
+    <main>          It specifies the main content of the HTML document
+    <mark>          It represent the text which is highlighted or marked for reference or notation purposes.
+    <meter>         It represents a scalar value within a known range.
+    <nav>           It represents the section which contains navigation links.
+    <progress>      It defines a progress bar which shows completions progress of a task.
+    <rp>            It defines alternative content for the browser which do not support ruby annotations.
+    <rt>            It defines explanations and pronunciations of characters in ruby annotations.
+    <ruby>          It defines ruby annotations (Specifically for Asian language).
+    <section>       It defines a generic section within an HTML document.
+    <summary>       It defines summary or caption for a <details> element which can be clicked to change the state of <details> element.
+    <time>          It defines data/time within an HTML document.
+    <wbr>           It specifies a line break opportunity. (Where line break possible)
+
+HTML  5 Form Tags:
+    <datalist>      It represent predefined list for input <option> element.
+    <output>        It is used a container element to represent the output of a calculation or outcome of user action.
+Graphics Tags:
+    <canvas>        It allows drawing graphics and animations via scripting.
+    <svg>           It is used to draw scalable vector graphics.
+HTML Media Tags:
+    <audio>         It defines sound content.
+    <embed>         It defines a container for external files/application/media
+    <source>        It defines multiple media resources for the media elements.
+    <track>         It defines text tracks for <audio> and <video> files
+    <video>         It defines video content within HTML document
+ 
+2.  How to embed audio and video in a webpage?
+    Video Element
+        The <video> element allows us to embed video files into an HTML, very similar to the way images are embedded.
+        Attributes we can include are:
+        src This attribute stands for the source, which is very similar to the src attribute used in the image element. We will add the link to a video file in the src attribute.
+        type This is going to be video/mp4 because .mp4 is the format of the video we are using. We can also use different video formats like .ogg or .webm, then the value of type attribute will change to video/ogg or video/WebM respectively.
+        Note: some common video formats are WebM, Ogg, MP4.
+    Audio Element
+        The <audio> element is very similar to the video element. However, the only major difference is that there are no visuals.
+        We can use the audio element to play an audio file on our web page — such as an mp3 file.
+        Now, just like the video tag, there are two different ways to do this.
+        Use a single tag representing the entire element.
+        Opening and closing tag with the child elements in between.
+        Now, we’ll have an opening and closing audio tag, and then we will add the source element in between.
+        There is no controls attribute given to the <audio> element in the example above, so the &lt;audio> element won’t show up in the HTML document.
+        Now, you can see that there are only a few key differences here. The value in type attribute is changed from “video/mp4” to “audio/mp3”. In the src attribute, we’ve changed from a video file with .mp4 extension to an audio file with .mp3 extension.
+        Now, just like the video element, we won’t actually be able to stop or start the audio without any controls. So, we will be adding the controls attribute to the audio element.
+
+3.  Semantic element in HTML5?
+    Semantic HTML elements are those that clearly describe their meaning in a human- and machine-readable way. Elements such as <header> , <footer> and <article> are all considered semantic because they accurately describe the purpose of the element and the type of content that is inside them.
+
+4.  Canvas and SVG tags
+    SVG
+    Vector based (composed of shapes)
+    Multiple graphical elements, which become the part of the page's DOM tree
+    Modified through script and CSS
+    Good text rendering capabilities
+    Give better performance with smaller number of objects or larger surface, or both
+    Better scalability. Can be printed with high quality at any resolution. Pixelation does not occur.
+
+    Canvas
+    Raster based (composed of pixel)
+    Single element similar to <img> in behavior. Canvas diagram can be saved to PNG or JPG format
+    Modified through script only
+    Poor text rendering capabilities
+    Give better performance with larger number of objects or smaller surface, or both
+    Poor scalability. Not suitable for printing on higher resolution. Pixelation may occur.
+Footer
