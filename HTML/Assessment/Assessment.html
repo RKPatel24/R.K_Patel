@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment-1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .main1
+        {
+            width: 100%;
+            display: flex;
+            background: url(assessment2.jpg);
+            background-size: 100% 100%;        
+        }
+        .left1
+        {
+            width: 30%;
+            height: 600px;
+            background-color: rgba(200, 200, 200,0.4);
+            backdrop-filter: blur(3px);
+            /* opacity: 0.4; */
+            /* filter: brightness(0.8); */
+            /* border: 1px solid grey; */
+            color: white;
+        }
+        .lefttop
+        {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+        .border1{
+            width: 140px;
+            height: 120px;
+            text-align: center;
+            padding-top: 25px;
+            padding-left: 40px;
+            padding-right: 30px;
+            /* text-align: center; */
+            border: 2px solid white;
+            position: absolute;
+            left: 90px;
+            top: 100px;
+        }
+        .border1 h3{
+            margin: 25px auto;
+            
+        }
+        .border2{
+            width: 140px;
+            height: 120px;
+            border: 2px solid white;
+            position: absolute;
+            left: 100px;
+            top:115px;
+        }
+        .left1center
+        {
+            width: 100%;
+            height: 150px;
+        }
+        .left1center ul li{
+            list-style: none;
+            padding: 6px;
+            text-align: right;
+            margin-right: 170px;
+        }
+        .left1bottom
+        {
+            width: 100%;
+            height: 150px;
+            text-align: center;
+        }
+        .left1icons
+        {
+            display: flex;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-left: 50px;
+            padding-right: 100px;
+            justify-content: space-around;
+        }        
+        .left1bottom p
+        {
+            font-size: 12px;
+            margin-right: 50px;
+            font-weight: lighter;
+
+        }
+        .right1
+        {
+            width: 70%;
+            height: 600px;
+            position: relative;
+        }
+        .right2
+        {
+            width: 350px;
+            height: 200px;
+            position: absolute;
+            left: 400px;
+            top: 200px;
+            padding: 20px;
+            background-color: rgba(200, 200, 200,0.4);
+            backdrop-filter: blur(3px);
+            /* background-color: rgb(195, 185, 185);
+            opacity: 0.6; */
+            /* font-weight: bold; */
+            border: 1px solid white;
+            box-shadow: 0px 0px 3px white;
+
+        }
+        .right2 h3
+        {
+            color: aqua;
+            padding: 10px;
+            padding-left: 0;
+        }
+
+        .main2
+        {
+            display: flex;
+            height: auto;
+        }
+        .left3
+        {
+            width: 30%;
+            height: 14  00px;
+            background-color: dimgrey;
+        }
+        .right3
+        {
+            width: 70%;
+            height: 1300px;
+        }
+        .right3main
+        {
+            width: 100%;
+            display: flex;
+            padding: 30px;
+        }
+        .about
+        {
+            width: 50%;
+            padding-right: 25px;
+            
+        }
+        .company
+        {
+            width: 50%;
+        }
+        .spcail
+        {
+            font-size: 50px;
+            padding-bottom: 20px;
+        }
+        .work
+        {
+            width: 90%;
+            margin: auto;
+            height: 350px;
+            position: relative;
+        }
+
+        .border3{
+            width: 97%;
+            height: 90%;
+            text-align: center;
+            padding-top: 25px;
+            border: 1px solid black;
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            padding-left: 10px;
+        }
+        .workimg
+        {
+            display: flex;
+            justify-content: space-around;
+        }
+        .workimages img
+        {
+            width: 100%;
+            height: 100%;
+        }
+        .workimages
+        {
+            width: 23%;
+            height: 230px;
+            border: 10x solid black;
+            padding: 10px;
+        }
+        .border4{
+            width: 97%;
+            height: 90%;
+            border: 1px solid black;
+            position: absolute;
+            left: 20px;
+            top: 25px;
+        }
+        .client
+        {
+            width: 100%;
+            height: 430px;
+            padding: 40px;
+        }
+        .worklogo
+        {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .logos
+        {
+            width: 160px;
+            height: 90px;
+            margin: 20px;
+            border: 1px solid black;
+            padding: 20px;
+;
+        }
+        .logos img{
+            width: 100%;
+            height: 100%;
+        }
+        .review{
+            width: 100%;
+            display: flex;
+            height: 500px;
+        }
+        .workleft
+        {
+            width: 50%;
+            position: relative;
+            margin-left: 50px;
+        }
+        .border5{
+            width: 250px;
+            height: 200px;
+            text-align: center;
+            padding-top: 25px;
+            padding-left: 20px;
+            padding-right: 10px;
+            border: 1px solid black;
+            position: absolute;
+            left: 30px;
+            top: 15px;
+        }
+        .border6{
+            width: 250px;
+            height: 200px;
+            border: 1px solid black;
+            position: absolute;
+            left: 40px;
+            top: 25px;
+        }
+        .workright input
+        {
+            width: 100%;
+            padding: 5px;
+            margin: 10px;
+            border: none;
+            line-height: 20px;
+            border-bottom: 1px solid black;
+        }
+        .workright button
+        {
+            margin-left: 210px;
+            margin-top: 10px;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid black;
+            background-color: inherit;
+            font-size: 16px;
+        }
+        .blue
+        {
+            color: blue;
+            padding-left: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="main1">
+        <div class="left1">
+            <div class="lefttop">
+                <div class="border1">
+                    <h3>DREAM PULSE</h3>
+                </div>
+                <div class="border2">        </div>
+            </div>
+            <div class="left1center">
+                <ul>
+                    <li>INTRO</li>
+                    <li>ABOUT</li>
+                    <li>WORK</li>
+                    <li>CLIENTS</li>
+                    <li>LET'S TALK</li>
+                </ul>
+            </div>
+            <div class="left1bottom">
+                <div class="left1icons">
+                    <i class="fa-brands fa-square-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-brands fa-centos"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
+                <p>Copyright 2020 Drean PULSE
+                    <br>
+                    design: Template Mo
+                </p>
+            </div>
+        </div>
+        <div class="right1">
+            <div class="right2">
+                <h3>INTRODUCING DREAM PULSE</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto dolor provident quod delectus inventore architecto illo,<br><br> accusantium in ab ipsam, neque totam aut quos minus tempora quaerat id excepturi maxime.</p>
+            </div>
+        </div>
+    </div>
+    <div class="main2">
+        <div class="left3">
+
+        </div>
+        <div class="right3">
+            <div class="right3main">
+                <div class="about">
+                    <i class="fa-solid fa-scale-balanced spcail"></i>
+                    <h3 class="blue">About Us</h3>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti sint, nesciunt maxime quibusdam ipsam quo sed itaque
+                        <br><br> impedit totam esse repellendus voluptas, laborum debitis saepe cupiditate modi. Tempora, facilis a!
+                    </p>
+                </div>
+                <div class="company">
+                    <i class="fa-sharp fa-solid fa-building spcail"></i>
+                    <h3 class="blue">Company Profile</h3>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veniam repudiandae suscipit voluptatibus consequuntur in molestias ad
+                        <br><br> modi, voluptates officiis repellat corporis doloribus atque, dolor illo odio eveniet, tenetur officia!
+                    </p>
+                </div>
+            </div>
+            <div class="work">
+                    <div class="border3">
+                        <h3 class="blue">Our Work</h3>
+                        <br>
+                        <div class="workimg">
+                            <div class="workimages"><img src="dog.jpg" alt="" ></div>
+                            <div class="workimages"><img src="nat.jpg" alt="" ></div>
+                            <div class="workimages"><img src="dog2,jpg.webp" alt="" ></div>
+                            <div class="workimages"><img src="assessment_1.jpeg" alt="" ></div>
+                    </div>
+                    </div>
+                    <div class="border4">        </div>
+                </div>
+                <div class="client">
+                    <h3 class="blue">Our Client</h3>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis deserunt adipisci dignissimos, voluptates nihil 
+                        <br><br>officia, unde labore obcaecati dolore sed ipsa impedit in quia magni esse? Ipsam, modi ex. Facilis.
+                    </p>
+                    <div class="worklogo">
+                        <div class="logos"><img src="MYOB_Logo.png" alt="" ></div>
+                        <div class="logos"><img src="Belimo-Logo.svg.png" alt="" ></div>
+                        <div class="logos"><img src="lifegroup.png" alt="" ></div>
+                        <div class="logos"><img src="Lilly-Logo.svg.png" alt="" ></div>
+                        <div class="logos"><img src="citrus.jpg" alt="" ></div>
+                        <div class="logos"><img src="Trustly-logo.jpg" alt="" ></div>
+                        <div class="logos"><img src="oldendorff.png" alt="" ></div>
+                        <div class="logos"><img src="grabyo.jpg" alt="" ></div>
+                    </div>    
+                </div>
+                <div class="review">
+                    <div class="workleft">
+                        <div class="border5">
+                            <h3 class="blue">DREAM PULSE</h3>
+                            <br>
+                            <p>
+                                Lorem ipsum iet inventore quidem quasi quod fugiat accusamus tenetur modi impedit
+                                <br><br> oluptatum! Eveniet, libero vero! Eligendi, ducimus.
+                            </p>
+                        </div>
+                        <div class="border6">        </div>
+                    </div>
+                    <div class="workright">
+                        <input type="text"  placeholder="Your Name">
+                        <br>
+                        <input type="email"  placeholder="Your Email">
+                        <br>
+                        <input type="text"  placeholder="Message..">
+                        <br>
+                        <button>SEND</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
