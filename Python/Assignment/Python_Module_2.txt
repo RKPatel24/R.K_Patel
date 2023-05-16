@@ -1,0 +1,340 @@
+1> ==> Write a Python program to check if a number is positive, negative, or zero.
+
+ANS :-  def checkPosNeg():
+    		num = int(input("Enter number : "))
+    		if num>0:
+        		return "Positive Number"
+    		else:
+        		return "Negative Number"
+    
+		print(checkPosNeg())
+----------------------------------------------------------------------------------------------------
+
+2> ==> Write a Python program to get the Factorial number of a given number.
+
+ANS :- def findFactorial(num):
+
+		f = 1
+
+	  for i in range (1,num+1):
+		f*=1
+		
+		print("factorial=",f)
+
+	number = int(input("Enter number : "))
+	findFactorial(number)
+--------------------------------------------------------------------------------------------------------------
+
+3> ==> Write a Python program to get the Fibonacci series of given range.
+
+ANS :- def fibonacci_range(start, end):
+		fib_series = []
+
+		a, b = 0, 1
+
+		while a <= end:
+	        if a >= start:
+      	      fib_series.append(a)
+        	  a, b = b, a + b
+
+    		return fib_series
+
+		start_range = int(input("Enter the starting number: "))
+		end_range = int(input("Enter the ending number: "))
+
+		fibonacci_series = fibonacci_range(start_range, end_range)
+		print("Fibonacci series within the range:", fibonacci_series)
+---------------------------------------------------------------------------------------------------------------
+
+4> ==> How memory is managed in Python? 
+		
+ANS :- Memory management in Python involves a private heap containing all Python objects and data structures. 
+	 The management of this private heap is ensured internally by the Python memory manager.
+----------------------------------------------------------------------------------------------------------------
+
+5> ==> What is the purpose continue statement in Python?
+
+ANS :- The continue keyword is used to end the current iteration in a for loop (or a while loop), and continues to the next iteration.
+----------------------------------------------------------------------------------------------------------------
+
+6> ==> Write python program that swap two number with temp variable and without temp variable.
+
+ANS :-	str1=input("Enter the first string:-")
+
+		str2=input("Enter the second string:-")	
+		
+		x=str1[0:2]
+
+		str1=str1.replace(str1[0:2],str2[0:2])
+		print("Second string has become:",str2)
+
+		print("First string has become:",str1)
+		print("Second string has become:",str2)
+-----------------------------------------------------------------------------------------------------------------	
+
+7> ==> Write a Python program to find whether a given number is even or odd, print out an appropriate message to the user.
+
+ANS :- def checkEvenOdd(number):
+		if number % 2 == 0:
+			return "Even number"
+		else:
+			return " Odd number"
+
+
+
+		num = int(input("Enter your number : "))
+		print(checkEvenOdd(num))
+-----------------------------------------------------------------------------------------------------------------
+8> ==> Write a Python program to test whether a passed letter is a vowel or not.
+
+ANS :- def is_vowel(letter):
+		vowels = ['a', 'e', 'i', 'o', 'u']
+		if letter.lower() in vowels:
+			return True
+		else:
+			return False
+
+	input_letter = input("Enter a letter: ")
+	
+	if is_vowel(input_letter):
+		print(input_letter, "is a vowel.")
+	else:
+		print(input_letter, "is not a vowel.")
+------------------------------------------------------------------------------------------------------------------
+9> ==> Write a Python program to sum of three given integers. However, if two values are equal sum will be zero. 
+
+ANS :- def sum_of_three_integers (a, b, c):
+		if a == b or b == c or a == c:
+			return 0
+		else:if n <= 0:
+			return a + b + c
+
+	num1 = int(input("Enter the first integer : "))
+	num2 = int(input("Enter the first integer : "))
+	num3 = int(input("Enter the first integer : "))
+
+	result = sum_of_three_integers(num1, num2 , num3)
+
+	print("sum of the three integer : ", result)
+-------------------------------------------------------------------------------------------------------------------
+10> ==> Write a Python program that will return true if the two given integer values are equal or their sum or difference is 5.
+
+ANS :- def check_values(a, b):
+		if a == b or a + b == 5 or abs(a - b) == 5:
+			return True
+		else:
+			return False
+
+		
+	num1 = int(input("Enter the first integer: "))
+	num2 = int(input("Enter the second integer: "))
+
+	result = check_values(num1, num2)
+	print("Result:", result)
+---------------------------------------------------------------------------------------------------------------------
+11> ==> Write a python program to sum of the first n positive integers. 
+
+ANS :- def sum_of_positive_integers(n):
+		if n <= 0:
+			return 0
+		
+		sum = 0
+		for i in range(1, n + 1):
+			sum += i
+		
+		return sum
+		
+		n = int(input("Enter a positive integer: "))
+
+		result = sum_of_positive_integers(n)
+		print("Sum of the first", n, "positive integers:", result)
+-----------------------------------------------------------------------------------------------------------------------
+12> ==> Write a Python program to calculate the length of a string. 
+
+ANS :- def calculate_string_length(string):
+		length = 0
+		for char in string:
+			length += 1
+		return length
+
+	input_string = input("Enter a string: ")
+	
+	length = calculate_string_length(input_string)
+	print("Length of the string:", length)
+-------------------------------------------------------------------------------------------------------------------------
+13> ==> Write a Python program to count the number of characters (character frequency) in a string
+
+
+ANS :-	def count_character_frequency(string):
+    			frequency = {}
+			
+			for char in string:
+				if char in frequency:
+			            frequency[char] += 1
+				else:
+					frequency[char] = 1
+			return frequency
+
+
+		input_string = input("Enter a string: ")
+		
+		character_frequency = count_character_frequency(input_string)
+		print("Character Frequency:")
+		for char, count in character_frequency.items():
+			print(f"{char}: {count}")
+------------------------------------------------------------------------------------------------------------------------
+14> ==> What are negative indexes and why are they used?
+
+ANS :- Negative Indexing is used to in Python to begin slicing from the end of the string i.e. the last. Slicing in Python gets a sub-string from a string. 
+	 The slicing range is set as parameters i.e. start, stop and step.
+
+	my_list = [1, 2, 3, 4, 5]
+	print(my_list[-1])
+	print(my_list[-3])
+
+	my_string = "Hello, World!"
+	print(my_string[-1])
+	print(my_string[-7:-1])
+-------------------------------------------------------------------------------------------------------------------------
+15> ==> Write a Python program to count occurrences of a substring in a string. 
+
+ANS :-	def count_substring_occurrences(string, substring):
+			count = 0
+			index = 0
+		while index < len(string):
+			index = string.find(substring, index)
+			if index == -1:
+			   break
+			count += 1
+			index += 1
+		return count
+
+		input_string = input("Enter a string: ")
+		input_substring = input("Enter a substring: ")
+
+		occurrences = count_substring_occurrences(input_string, input_substring)
+		print("Occurrences of the substring:", occurrences)
+--------------------------------------------------------------------------------------------------------------------------
+16> ==> Write a Python program to count the occurrences of each word in a given sentence 
+
+ANS :- def count_word_occurrences(sentence):
+		word_count = {}
+		words = sentence.split()
+
+		for word in words:
+			if word in word_count:
+				word_count[word] += 1
+			else:
+				 word_count[word] = 1
+			
+		return word_count
+	
+	input_sentence = input("Enter a sentence: ")
+	
+	word_occurrences = count_word_occurrences(input_sentence)
+	print("Word Occurrences:")
+	for word, count in word_occurrences.items():
+		print(f"{word}: {count}")
+--------------------------------------------------------------------------------------------------------------------------
+17> ==> Write a Python program to get a single string from two given strings, separated by a space and swap the first two characters of each string.
+
+ANS :- def swap_and_combine_strings(str1, str2):
+		swapped_str1 = str2[:2] + str1[2:]
+		swapped_str2 = str1[:2] + str2[2:]
+		combined_string = swapped_str1 + " " + swapped_str2
+		return combined_string
+
+	input_str1 = input("Enter the first string: ")
+	input_str2 = input("Enter the second string: ")
+
+	result = swap_and_combine_strings(input_str1, input_str2)
+	print("Combined string with swapped characters:", result)
+-----------------------------------------------------------------------------------------------------------------------------
+18> ==> Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string already ends with 'ing' then add
+       'ly' instead if the string length of the given string is less than 3, leave it unchanged.
+
+ANS :- def modify_string(str):
+		if len(str) >= 3:
+			if str[-3:] == 'ing':
+				str += 'ly'
+			else:
+				str += 'ing'
+		return str
+
+	input_str = input("Enter a string: ")
+	
+	result = modify_string(input_str)
+	print("Modified string:", result)
+-----------------------------------------------------------------------------------------------------------------------------
+19> ==> Write a Python program to find the first appearance of the substring 'not' and 'poor' from a given string, if 'not' follows the 'poor', replace the
+        whole 'not'...'poor' substring with 'good'. Return the resulting string.
+
+
+ANS :- def replace_substring(string):
+		not_index = string.find('not')
+		poor_index = string.find('poor')
+		
+		if not_index != -1 and poor_index != -1 and not_index < poor_index:
+			return string[:not_index] + 'good' + string[poor_index+4:]
+		else:
+			return string
+
+	input_string = input("Enter a string: ")
+	result = replace_substring(input_string)
+	print("Modified string:", result)
+-------------------------------------------------------------------------------------------------------------------------------
+20> ==> Write a Python function that takes a list of words and returns the length of the longest one.
+
+ANS :-def find_longest_word(words):
+		longest_length = 0
+		
+		for word in words:
+			if len(word) > longest_length:
+			longest_length = len(word)
+
+		return longest_length
+
+	word_list = input("Enter a list of words (separated by spaces): ").split()
+	
+	longest_word_length = find_longest_word(word_list)
+	print("Length of the longest word:", longest_word_length)			
+------------------------------------------------------------------------------------------------------------------------------------
+21> ==> Write a Python function to reverses a string if its length is a multiple of 4.
+
+ANS :- def reverse_string_if_multiple_of_four(string):
+		if len(string) % 4 == 0:
+			return string[::-1]
+		else:
+			return string
+
+
+	input_string = "Hello, world!"
+	result = reverse_string_if_multiple_of_four(input_string)
+	print(result)
+------------------------------------------------------------------------------------------------------------------------------------
+22> ==> Write a Python program to get a string made of the first 2 and the last 2 chars from a given a string. If the string length is less than 2, return
+	  instead of the empty string
+
+ANS :- def get_string_slice(string):
+		if len(string) < 2:
+			return ''
+		else:
+			return string[:2] + string[-2:]
+		
+	input_string = "Hello, world!"
+	result = get_string_slice(input_string)
+	print(result)
+-----------------------------------------------------------------------------------------------------------------------------------
+23> ==> Write a Python function to insert a string in the middle of a string.
+
+ANS :- def insert_string_in_middle(original_string, string_to_insert):
+    		middle_index = len(original_string) // 2
+    		return original_string[:middle_index] + string_to_insert + original_string[middle_index:]
+
+
+	original = "Hello world!"
+	to_insert = "beautiful "
+	result = insert_string_in_middle(original, to_insert)
+	print(result)
+============================================================================================================================================================================================
+															END
