@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Booking Form</title>
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="number"],
+    .form-container input[type="email"],
+    .form-container select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Restaurant Booking Form</h2>
+    <form id="bookingForm">
+      <label for="bookingType">Booking Type:</label>
+      <select id="bookingType" name="bookingType">
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+      </select>
+
+      <label for="userName">User Name:</label>
+      <input type="text" id="userName" name="userName" placeholder="Your name" required>
+
+      <label for="mobileNumber">Mobile Number:</label>
+      <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Your mobile number" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+
+      <label for="numberOfPeople">Number of People:</label>
+      <input type="number" id="numberOfPeople" name="numberOfPeople" placeholder="Number of people" required>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="slot">Slot:</label>
+      <input type="text" id="slot" name="slot" placeholder="Morning/Afternoon/Evening" required>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Fetch form values
+      var bookingType = document.getElementById("bookingType").value;
+      var userName = document.getElementById("userName").value;
+      var mobileNumber = document.getElementById("mobileNumber").value;
+      var email = document.getElementById("email").value;
+      var numberOfPeople = document.getElementById("numberOfPeople").value;
+      var date = document.getElementById("date").value;
+      var time = document.getElementById("time").value;
+      var slot = document.getElementById("slot").value;
+      
+      // Log the form values (you can modify this to send the values to a server)
+      console.log("Booking Type: " + bookingType);
+      console.log("User Name: " + userName);
+      console.log("Mobile Number: " + mobileNumber);
+      console.log("Email: " + email);
+      console.log("Number of People: " + numberOfPeople);
+      console.log("Date: " + date);
+      console.log("Time: " + time);
+      console.log("Slot: " + slot);
+      
+      // Reset the form fields
+      document.getElementById("bookingForm").reset();
+    });
+  </script>
+</body>
+</html>
