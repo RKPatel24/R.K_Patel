@@ -1,0 +1,43 @@
+﻿1. What is jQuery?
+=> jQuery is a small, light-weight and fast JavaScript library. It is cross-platform and supports different types of browsers. It is also referred as ?
+   write less do more? because it takes a lot of common tasks that requires many lines of JavaScript code to accomplish, and binds them into methods that 
+   can be called with a single line of code whenever needed. It is also very useful to simplify a lot of the complicated things from JavaScript, like AJAX 
+   calls and DOM manipulation.
+
+   1. jQuery is a small, fast and lightweight JavaScript library.
+   2. jQuery is platform-independent.
+   3. jQuery means "write less do more".
+   4. jQuery simplifies AJAX call and DOM manipulation.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. How to Apply CSS Using JQuery, How to Add Class and Remove Class in Jquery , JQuery Animation?
+=> It is possible to change the CSS property of an element by using a simple JavaScript API, but we try to complete this challenge using jQuery css() method.  
+
+	Syntax:
+
+		$().css(propertyname, value);
+		$().css(properties);
+
+	There are many types of CSS methods, which means that each method has the same name but takes different parameters. We will discuss only two methods, one of which is used to change 	a single CSS property, while the other is used to change multiple CSS properties simultaneously. With the second method, you can pass a JSON string object as a parameter that you 	want to apply to the HTML element. 
+
+
+   The addClass() or removeClass() methods are used to add the CSS classes when there is a need to add to our webpage when there is some event listener or to create some kind of effect.
+   In this article, let us see how can we add a CSS class or remove a CSS class in jQuery.
+
+	Syntax:
+
+		Adding a class:
+		$('selector').addClass(class_name);
+
+       Removing a class:
+       $('selector').removeClass(class_name);
+
+  The jQuery animate() method is used to create custom animations.
+
+ 	Syntax:
+
+		$(selector).animate({params},speed,callback);
+
+  The required params parameter defines the CSS properties to be animated.
+  The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+  The optional callback parameter is a function to be executed after the animation completes.
+  The following example demonstrates a simple use of the animate() method; it moves a <div> element to the right, until it has reached a left property of 250px:
