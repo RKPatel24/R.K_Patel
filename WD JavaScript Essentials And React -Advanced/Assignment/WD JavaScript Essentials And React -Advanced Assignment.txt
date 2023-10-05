@@ -1,0 +1,810 @@
+1> Write a program to Show an alert.
+
+ANS:- 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Alert</title>
+</head>
+<body>
+    <h1>Show Alert Example</h1>
+    
+    <button id="showAlertButton">Click me to show an alert</button>
+
+    <script>
+        var showAlertButton = document.getElementById("showAlertButton");
+
+        showAlertButton.addEventListener("click", function() {
+            
+            alert("This is an alert!");
+        });
+    </script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2> What will be the result for these expressions?
+
+ANS:- 
+ 
+==> 5 > 4 is true.
+==> "apple" > "pineapple" is false.
+==> "2" > "12" is true.
+==> undefined == null is true.
+==> undefined === null is false.
+==> null == "\n0\n" is false.
+==> null === +"\n0\n" is false.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3> Will alert be shown?
+	if ("0") { alert( 'Hello'); }
+
+ANS:-
+
+if ("0") { 
+    alert('Hello'); 
+}
+
+The condition in the if statement is the string "0". In JavaScript, any non-empty string is considered truthy, which means it evaluates to true in a Boolean context. Since the string "0" is not empty, the condition is true, and the code inside the if block will be executed. In this case, it will show the alert with the message 'Hello'.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4> What is the code below going to output? alert( null || 2 || undefined );
+
+ANS:- 
+
+==> null is falsy.
+==> 2 is truthy, so the evaluation stops here, and 2 is returned.
+==> undefined is not evaluated because the operator already found a truthy value.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5> The following function returns true if the parameter age is greater than 18. Otherwise it asks for a confirmation and returns its result:
+
+function
+
+checkAge(age)
+
+{
+		if(age>18) {return true;}
+else{
+	// ...return confirm (‘did parents allow you?');
+	}
+}
+
+ANS:- 
+
+If age is greater than 18, the function returns true.
+If age is 18 or less, the function displays a confirmation dialog with the message 'Did parents allow you?' using the confirm function. The result of the confirmation (either true or false) is returned by the function.
+So, if you call checkAge(20), it will return true immediately because 20 > 18. If you call checkAge(15), it will display a confirmation dialog, and the return value will depend on whether the user clicks "OK" (returns true) or "Cancel" (returns false).
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6> Replace Function Expressions with arrow functions in the code below:
+
+
+Function
+
+ask(question, yes, no)
+
+{ if (confirm(question))yes();
+	else
+	no();
+}
+   ask("Do you agree?", function()
+	{ alert("You agreed."); },
+function() {
+
+	alert("You canceled the execution."); }
+}
+
+ANS:- 
+
+const ask = (question, yes, no) => {
+  if (confirm(question)) yes();
+  else no();
+};
+
+ask("Do you agree?", () => {
+  alert("You agreed.");
+}, () => {
+  alert("You canceled the execution.");
+});
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+										MODULE: 2 (Data Types and Objects)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1> Write the code, one line for each action:
+
+
+a) Create an empty object user. ==> const user = {};
+b) Add the property name with the value John. ==> user.name = "Raj";
+c) Add the property surname with the value Smith. ==> user.surname = "Kaneriya";
+d) Change the value of the name to Pete. ==> user.name = "RK";
+e) Remove the property name from the object. ==> delete user.name;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2> Is array copied? let fruits = ["Apples", "Pear", "Orange"]; // push a new value into the "copy" let shoppingCart = fruits; shoppingCart.push("Banana"); // what's in fruits?
+   alert( fruits.length ); // ?
+
+
+ANS:- In the code you provided, the array fruits is not copied; rather, a reference to the same array is assigned to the shoppingCart variable. This means that both fruits and shoppingCart point to the same underlying array in memory. When you modify shoppingCart, the same modifications will be reflected in fruits because they are essentially the same array.
+
+	after executing the code, if you check the fruits.length, it will be 4, because you pushed a new value ("Banana") into the array through the shoppingCart reference, and both fruits and shoppingCart refer to the same array.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3> Map to names
+	let john = { name: "John", age: 25 }; let pete = { name: "Pete", age: 30 }; let mary =
+	{ name: "Mary", age: 28 }; let users = [ john, pete, mary ]; let names = /* ... your
+	code */ alert( names ); // John, Pete, Mary
+
+ANS:- 
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [john, pete, mary];
+
+let names = users.map(user => user.name);
+
+alert(names);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4> Map to objects
+	let john = { name: "John", surname: "Smith", id: 1 }; let pete = { name: "Pete",
+	surname: "Hunt", id: 2 }; let mary = { name: "Mary", surname: "Key", id: 3 }; let
+	users = [ john, pete, mary ]; let usersMapped = /* ... your code ... */
+
+
+	/*
+	usersMapped = [
+	{ fullName: "John Smith", id: 1 },
+	{ fullName: "Pete Hunt", id: 2 },
+	{ fullName: "Mary Key", id: 3 }
+	]
+	*/ alert( usersMapped[0].id ) // 1 alert( usersMapped[0].fullName ) // John Smith
+
+ANS:-
+
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [john, pete, mary];
+
+let usersMapped = users.map(user => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id
+}));
+
+alert(usersMapped[0].id); // 1
+alert(usersMapped[0].fullName); // John Smith
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5> Sum the properties There is a salaries object with arbitrary number of salaries. Write the function sumSalaries(salaries) that returns the sum of all salaries using Object.values and the for..of loop.If salaries is empty, then the result must be 0.
+
+let salaries = {
+	"John": 100,
+	"Pete": 300,
+	"Mary": 250
+	};
+alert( sumSalaries(salaries) ); // 650
+
+ANS:- 
+
+function sumSalaries(salaries) {
+  let sum = 0;
+  for (let salary of Object.values(salaries)) {
+    sum += salary;
+  }
+  return sum;
+}
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+alert(sumSalaries(salaries)); // 650
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6> Destructuring assignment We have an object: Write the Destructuring assignment that reads:
+
+a) Name property into the variable name.
+b) Year’s property into the variable age.
+c) isAdmin property into the variable isAdmin (false, if no such property)
+d) let user = { name: "John", years: 30};
+
+ANS:- let user = { name: "John", years: 30 };
+
+	a) Name property into the variable name.
+let { name } = user;
+
+	b) Year’s property into the variable age.
+let { years: age } = user;
+
+	c) isAdmin property into the variable isAdmin (false, if no such property)
+let { isAdmin = false } = user;
+
+console.log(name); ==ANS "John"
+console.log(age); ==ANS 30
+console.log(isAdmin); ==ANS false (as there is no isAdmin property in the user object)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7> Turn the object into JSON and back Turn the user into JSON and then read it back into another variable.
+
+	user = { name: "John Smith", age: 35};
+
+ANS:- 
+
+let user = { name: "John Smith", age: 35 };
+
+	Convert the user object to JSON
+let userJSON = JSON.stringify(user);
+
+	Parse the JSON back into another variable
+let userCopy = JSON.parse(userJSON);
+
+console.log(userCopy);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									MODULE: 3 (Document, Event and Controls)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1> Create a program to hide/show the password
+
+ANS:- 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Toggle</title>
+</head>
+<body>
+  <label for="password">Password:</label>
+  <input type="password" id="password" placeholder="Enter your password">
+  <input type="checkbox" id="togglePassword"> Show Password
+
+  <script>
+    const passwordInput = document.getElementById('password');
+    const toggleCheckbox = document.getElementById('togglePassword');
+
+    toggleCheckbox.addEventListener('change', function () {
+      if (toggleCheckbox.checked) {
+        passwordInput.type = 'text'; // Show the password
+      } else {
+        passwordInput.type = 'password'; // Hide the password
+      }
+    });
+  </script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2> Create a program that will select all the classes and loop over and whenever i click the button the alert should show
+
+ANS:-
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alert on Button Click</title>
+</head>
+<body>
+  <button id="alertButton">Click Me</button>
+
+  <div class="alert-me">Element 1</div>
+  <div class="alert-me">Element 2</div>
+  <div class="alert-me">Element 3</div>
+
+  <script>
+    const alertButton = document.getElementById('alertButton');
+    const alertElements = document.querySelectorAll('.alert-me');
+
+    alertButton.addEventListener('click', function () {
+      alertElements.forEach(function (element) {
+        alert('Alert: ' + element.textContent);
+      });
+    });
+  </script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+3> Create a responsive header using proper JavaScript
+
+ANS:-
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Header</title>
+  <style>
+    /* Basic CSS for the header */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    /* CSS for the responsive header */
+    @media screen and (max-width: 600px) {
+      header {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Responsive Header</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <script>
+    // JavaScript code can be used to add interactivity if needed.
+  </script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4> Create a form and validate using JavaScript
+
+ANS:-
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <form id="contactForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <span id="nameError" class="error"></span>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <span id="emailError" class="error"></span>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      // Get form input values
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      // Reset previous error messages
+      document.getElementById("nameError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+
+      // Validate name (required)
+      if (name.trim() === "") {
+        document.getElementById("nameError").textContent = "Name is required";
+        return false;
+      }
+
+      // Validate email (required and a simple email format check)
+      if (email.trim() === "") {
+        document.getElementById("emailError").textContent = "Email is required";
+        return false;
+      }
+      // A basic email format validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Invalid email format";
+        return false;
+      }
+
+      // If all validations pass, the form is submitted
+      return true;
+    }
+  </script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5> Create a modal box using css and Js with three buttons
+
+ANS:- 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modal Box</title>
+  <style>
+    /* Styling for the modal and overlay */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* Styling for buttons */
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Styling for close button */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="openModal()">Open Modal</button>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="modal" id="modal">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <p>This is a modal box.</p>
+    <div class="button-container">
+      <button class="button" onclick="buttonClicked(1)">Button 1</button>
+      <button class="button" onclick="buttonClicked(2)">Button 2</button>
+      <button class="button" onclick="buttonClicked(3)">Button 3</button>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const modal = document.getElementById('modal');
+
+    function openModal() {
+      overlay.style.display = 'block';
+      modal.style.display = 'block';
+    }
+
+    function closeModal() {
+      overlay.style.display = 'none';
+      modal.style.display = 'none';
+    }
+
+    function buttonClicked(buttonNumber) {
+      alert(`Button ${buttonNumber} clicked!`);
+    }
+  </script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6> Use external js library to show slider
+
+ANS:- 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slider Example</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Include Swiper JS after the HTML -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
+</body>
+</html>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7> Prevent the browser when i click the form submit button
+
+ANS:-
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission Prevention</title>
+</head>
+<body>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Submit" id="submitButton">
+  </form>
+
+  <script>
+    // Prevent the default form submission behavior
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Custom submission logic here
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      // Perform validation or other actions here
+      if (name.trim() === '' || email.trim() === '') {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      // If everything is valid, you can submit the form manually using AJAX or other methods.
+      // For example, you can use the Fetch API to send the form data to a server.
+
+      // Example using the Fetch API to send the form data to a server
+      fetch('/submit', {
+        method: 'POST',
+        body: JSON.stringify({ name, email }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // Handle the server response here
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+  </script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+										MODULE: 4 (New Request)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1> What is JSON
+
+ANS:-
+
+JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse and generate. JSON is often used to transmit data between a server and a web application as an alternative to XML.
+
+JSON is based on a subset of the JavaScript programming language and consists of key-value pairs, where keys are strings enclosed in double quotation marks, and values can be strings, numbers, objects, arrays, booleans, or null. Here's a basic example of JSON:
+
+{
+  "name": "John",
+  "age": 30,
+  "isStudent": false,
+  "hobbies": ["reading", "gaming"],
+  "address": {
+    "street": "123 Main St",
+    "city": "Exampleville"
+  }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2> What is promises
+
+ANS:-
+
+Promises in JavaScript are a mechanism for handling asynchronous operations. They provide a way to work with asynchronous code in a more structured and manageable manner. Promises represent a value that may not be available yet but will be at some point in the future. They allow you to attach callbacks to handle the result or error once the asynchronous operation completes.
+
+	1> Pending: The initial state, representing an ongoing or incomplete operation.
+	2> Fulfilled: The state when the operation is successfully completed, and a result is available.
+	3> Rejected: The state when an error occurred during the operation.
+
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const data = "This is some data from an async operation";
+      // Simulate a successful operation
+      resolve(data);
+
+      // Simulate an error
+      // reject("An error occurred");
+    }, 2000);
+  });
+};
+
+// Using the Promise
+fetchData()
+  .then(result => {
+    console.log("Success:", result);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3> Write a program of promises and handle that promises also
+
+ANS:-
+// Function that returns a Promise to simulate fetching data
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    // Simulate an asynchronous operation (e.g., fetching data)
+    setTimeout(() => {
+      const success = Math.random() < 0.5; // Simulating success or failure
+      if (success) {
+        const data = "This is some fetched data!";
+        resolve(data); // Resolve the Promise with the data
+      } else {
+        const error = "Failed to fetch data!";
+        reject(error); // Reject the Promise with an error
+      }
+    }, 2000); // Simulating a 2-second delay
+  });
+}
+
+// Using the Promise
+fetchData()
+  .then((result) => {
+    console.log("Success:", result);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  })
+  .finally(() => {
+    console.log("Promise has been handled, regardless of success or failure.");
+  });
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4> Use fetch method for calling an api https://fakestoreapi.com/products
+
+Ans:-
+
+// Use the fetch method to make an API request
+fetch("https://fakestoreapi.com/products")
+  .then((response) => {
+    // Check if the response status is OK (200)
+    if (!response.ok) {
+      throw new Error(`Network response was not ok (${response.status})`);
+    }
+    // Parse the response body as JSON
+    return response.json();
+  })
+  .then((data) => {
+    // Handle the JSON data
+    console.log("Products:", data);
+    // You can now work with the data here
+  })
+  .catch((error) => {
+    // Handle any errors that occurred during the fetch
+    console.error("Error:", error);
+  });
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5> Display all the product from the api in your HTML page
+
+ANS:- 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product List</title>
+</head>
+<body>
+  <h1>Product List</h1>
+  <div id="productContainer"></div>
+
+  <script>
+    // Function to fetch and display products
+    function displayProducts() {
+      // Fetch products from the API
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok (${response.status})`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Get the product container element
+          const productContainer = document.getElementById("productContainer");
+
+          // Loop through the products and create HTML elements for each
+          data.forEach((product) => {
+            // Create a div element for each product
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+
+            // Create HTML for the product
+            productDiv.innerHTML = `
+              <h2>${product.title}</h2>
+              <p>${product.description}</p>
+              <p>Price: $${product.price}</p>
+              <img src="${product.image}" alt="${product.title}" />
+            `;
+
+            // Append the product div to the container
+            productContainer.appendChild(productDiv);
+          });
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+
+    // Call the function to display products
+    displayProducts();
+  </script>
+</body>
+</html>
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+											THE END
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
