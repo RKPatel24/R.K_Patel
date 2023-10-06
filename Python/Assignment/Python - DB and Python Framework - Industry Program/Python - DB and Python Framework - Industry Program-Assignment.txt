@@ -1,0 +1,412 @@
+										Module – 5 (DB and Python Framework)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1> Why Django should be used for web-development? Explain how you can create a project in Django?
+
+ANS:- 
+
+==> High-Level Abstractions: Django provides high-level abstractions for common web development tasks, making it easier and more efficient to build web applications. It includes features like an ORM (Object-Relational Mapping) for database interaction, a templating engine for creating dynamic web pages, and a built-in admin panel for managing application data.
+
+==> Security: Django takes security seriously and includes numerous built-in security features such as protection against SQL injection, cross-site scripting (XSS), cross-site request forgery (CSRF), and more. This helps developers create secure applications by default.
+
+==> Scalability: Django follows the "batteries-included" philosophy, providing a wide range of built-in modules and libraries. It allows developers to scale their applications easily as they grow in complexity.
+
+==> Modularity and Reusability: Django's architecture promotes code modularity and reusability. You can create reusable components (apps) and integrate them into multiple projects.
+
+==> Community and Ecosystem: Django has a large and active community of developers and an extensive ecosystem of third-party packages and extensions. This means you can find solutions to common problems and access a wealth of resources, including documentation, tutorials, and community support.
+
+==> Rapid Development: Django's built-in features and conventions for project structure enable rapid development. It includes automatic admin interfaces, authentication, URL routing, and more, reducing the need to reinvent the wheel for common web application tasks.
+
+==> Cross-Platform: Django is platform-independent, allowing developers to deploy their applications on various web servers and database systems.
+
+Creating a Django Project:
+
+==> Install Django: Before creating a project, make sure you have Django installed. You can install it using pip:
+	pip install django
+==> Create a Project: To create a new Django project, open your command-line terminal and run the following command (replace projectname with your desired project name):
+	django-admin startproject projectname
+==> Project Structure: Django will create a project directory with the specified name (projectname), and inside it, you will find the initial project structure. It includes files like settings.py, urls.py, and manage.py, among others.
+
+==> Database Configuration: Modify the DATABASES setting in the settings.py file to configure your database settings, such as the database engine, name, user, and password.
+
+==> Migrate the Database: Run the following command to apply database migrations and create the initial database schema:
+	python manage.py migrate
+==> Create a Superuser (Optional): To access the admin panel, create a superuser account by running:
+	python manage.py createsuperuser
+==> Development Server: Start the development server with the following command:
+	python manage.py runserver
+==> Access the Admin Panel: You can access the admin panel at http://localhost:8000/admin/ and log in with the superuser account to start managing your application's data.
+
+==> Create Apps: You can create Django apps within your project using the following command:
+	python manage.py startapp appname
+==> Define URLs and Views: Create URL patterns and views for your application within the project's urls.py and views.py files.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2> How to check installed version of django?
+
+ANS:- 
+
+1>:- django-admin --version
+2>:-python -m django --version
+3>:-3.2.6
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3> Explain what does django-admin.py make messages command is used for?
+
+ANs:- The django-admin.py makemessages command in Django is used for internationalization (i18n) and localization (l10n) purposes. It is a management command that helps developers extract and update translation strings from the source code of a Django project. This command is essential when you want to make your Django application available in multiple languages or want to provide translations for different regions.
+
+==> Extracts Translatable Strings: The primary purpose of makemessages is to scan your Django project's source code (Python files and templates) to find translatable strings marked for translation. These strings are usually wrapped in translation functions such as gettext or ugettext (or their lazy counterparts gettext_lazy and ugettext_lazy).
+
+==> Creates or Updates .po Files: For each language/locale defined in your project, makemessages generates or updates a .po (Portable Object) file. These .po files contain a list of translatable strings along with their English source and a placeholder for translations.
+
+==> Editing .po Files: Developers and translators can then edit the generated .po files to provide translations for each string. Translators replace the placeholders with translations in the target language.
+
+==> Compiling .po Files: Once translations are completed, you can compile the .po files into binary .mo (Machine Object) files using the compilemessages management command. These binary files are used by Django to translate strings at runtime.
+
+==> command :- django-admin.py makemessages -l <locale>
+
+==> -l <locale>: Specify the target language/locale for which you want to extract translatable strings. For example, if you want to extract strings for French, you would use -l fr.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4> What is Django URLs?make program to create django urls
+
+ANS:- 
+
+==> In Django, URLs (Uniform Resource Locators) are used to define the mapping between URL patterns and views in a web application. URLs determine which view function should be executed when a particular URL is requested by a user. The process of mapping URLs to views is known as URL routing or URL dispatching.
+
+--> python manage.py startapp appname
+--> # myapp/views.py
+
+from django.http import HttpResponse
+
+def hello_world(request):
+    return HttpResponse("Hello, World!")
+
+--> # myapp/urls.py
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('hello/', views.hello_world, name='hello_world'),
+]
+
+--> # projectname/urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('myapp/', include('myapp.urls')),  # Include your app's URLs here
+]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5> What is a QuerySet?Write program to create a new Post object in database: 
+
+ANS:- 
+
+==> In Django, a QuerySet is a powerful tool for interacting with the database. It represents a collection of database queries that you can perform on your database to retrieve, filter, and manipulate data. QuerySets are used to retrieve data from database tables and can be filtered, sorted, and combined to perform complex database operations.
+
+1> Import the necessary modules and models.
+2> Create a new instance of the model class with the desired data.
+3> Save the instance to the database.
+
+
+from myapp.models import Post  # Replace 'myapp' with your app name
+
+# Create a new Post instance
+new_post = Post(
+    title="New Post Title",
+    content="This is the content of the new post.",
+    author="John Doe",  # Assuming you have an 'author' field in your Post model
+)
+
+# Save the new Post instance to the database
+new_post.save()
+
+# Optionally, you can also use the create() method to create and save the object in a single step:
+# new_post = Post.objects.create(
+#     title="New Post Title",
+#     content="This is the content of the new post.",
+#     author="John Doe",
+# )
+
+print("New Post created with ID:", new_post.id)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6> Mention what command line can be used to load data into Django?
+
+ANS:- 
+
+--> python manage.py loaddata <fixture_file>
+--> python manage.py loaddata data.json
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7> Explain what does django-admin.py make messages command is used for?
+
+ANS:- 
+
+1> Extracts Translatable Strings: The main function of makemessages is to scan your project's source code, including Python code and templates (usually in HTML or other formats), to find translatable strings. These strings are typically enclosed within translation functions like gettext, ugettext, gettext_lazy, ugettext_lazy, and similar functions.
+
+2> Generates .po Files: For each language/locale specified, makemessages generates or updates a corresponding .po (Portable Object) file. These .po files contain a list of translatable strings along with their English source strings and placeholders for translations.
+
+3> Optional: Customization of .po Files: The generated .po files can be customized by translators. Translators replace the placeholders in these files with translations in the target language.
+
+4> Compiles .po Files: After translations are added to the .po files, they can be compiled into binary .mo (Machine Object) files using the compilemessages command. These .mo files are used by Django at runtime to display translated strings.
+
+==> django-admin.py makemessages -l <locale>
+
+==> django-admin.py makemessages -l fr
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8> Make Django application to demonstrate following things o There wil be 2 modules(Admin,Product manager) o Admin can add product name (ex.Product id and product name) ex. (1, Samsung), (2, Apple)...etc. Data should store in
+
+ANS:- 
+
+==> 
+
+django-admin startproject myproject
+
+==> 
+
+cd myproject
+python manage.py startapp myapp
+
+==>
+
+# myapp/models.py
+from django.db import models
+
+class Product(models.Model):
+    product_id = models.AutoField(primary_key=True)
+    product_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.product_name
+
+==>
+
+python manage.py makemigrations
+python manage.py migrate
+
+==>
+
+python manage.py createsuperuser
+
+==>
+
+# myapp/admin.py
+from django.contrib import admin
+from .models import Product
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('product_id', 'product_name')
+
+==> 
+
+# myapp/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('admin/add_product/', views.add_product, name='add_product'),
+    path('product_manager/', views.product_manager, name='product_manager'),
+]
+
+==> 
+
+python manage.py runserver
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9> Product_mst table with product id as primary key o Admin can add product subcategory details Like (Product price, product image, Product model, product Ram) data should store in Product_sub_cat table o Admin can get product name as foreign key from product_mst table in product_sub_category_details page Admin can view, update and delete all registered details of product manager can search product on search bar and get all details about product.
+
+ANs:- 
+
+1> Create a new Django app if you haven't already:
+
+python manage.py startapp products
+
+2> Define the models for Product_mst and Product_sub_cat in the models.py file of your app (products in this case):
+
+# products/models.py
+from django.db import models
+
+class Product_mst(models.Model):
+    product_id = models.AutoField(primary_key=True)
+    product_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.product_name
+
+class Product_sub_cat(models.Model):
+    product = models.ForeignKey(Product_mst, on_delete=models.CASCADE)
+    product_price = models.DecimalField(max_digits=10, decimal_places=2)
+    product_image = models.ImageField(upload_to='product_images/')
+    product_model = models.CharField(max_length=100)
+    product_ram = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.product.product_name} - {self.product_model}"
+
+3> Create migrations and apply them to create the database tables for the models:
+
+python manage.py makemigrations
+python manage.py migrate
+
+4> Register the models in the admin panel by defining admin classes in the admin.py file of your app:
+
+# products/admin.py
+from django.contrib import admin
+from .models import Product_mst, Product_sub_cat
+
+admin.site.register(Product_mst)
+admin.site.register(Product_sub_cat)
+
+5> Create views and templates for adding, viewing, updating, and deleting product subcategory details.
+
+6> Implement the search functionality to allow product managers to search for products based on keywords or other criteria.
+
+7> Configure URLs for your app in the urls.py file of your app:
+
+# products/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('product/add/', views.add_product_subcategory, name='add_product_subcategory'),
+    path('product/<int:pk>/', views.view_product_subcategory, name='view_product_subcategory'),
+    path('product/<int:pk>/update/', views.update_product_subcategory, name='update_product_subcategory'),
+    path('product/<int:pk>/delete/', views.delete_product_subcategory, name='delete_product_subcategory'),
+    path('search/', views.search_products, name='search_products'),
+]
+
+8> Create the corresponding views and templates for adding, viewing, updating, and deleting product subcategory details, as well as searching for products.
+
+9> Run the development server:
+
+python manage.py runserver
+
+10> Access the admin panel at http://localhost:8000/admin/ to add product names through the Django admin interface.
+
+11> Access the product management pages and use the search functionality as needed. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+											THE END
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
