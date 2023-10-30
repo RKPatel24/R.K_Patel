@@ -1,0 +1,47 @@
+Django : Django is a powerful python web freamwork
+
+    which is contain lots of inbuilt features that will be help ful for advance level web application
+
+    flask : flask is a another web app freamwork which is written in python but compare whit flask django is 
+            more powerfull, advance and develop for complex application
+
+
+
+    Django support MVT architecture
+
+    MVT stands for Model View templates
+
+    Model : which is represent database- Tables
+
+    Views : which is contain all the business logics
+
+    Templates : which is indicate all the html web file 
+
+urls.py : which is contain all the urls of the application
+
+settings.py : which is contains all the confifuration of the application
+
+makemigration : which is used to implement project database and tables - which create script file
+
+migrate : which implements script files
+
+*pip install virtualenv
+
+* virtualenv -p python myenv
+
+*python -m venv myenv
+
+*cd myenv
+
+*Script\avtivate
+
+*pip install django
+
+
+*django-admin startproject myproject
+
+*cd myprojectr
+
+*python manage.py startapp myapp
+
+ 

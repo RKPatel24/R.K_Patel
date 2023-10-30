@@ -1,0 +1,7 @@
+@media(max-width:500px){
+
+    .logo, .nav, .tital{
+        display: none;
+
+    }
+}

@@ -1,0 +1,17 @@
+OOPS :object oriented progreaming system
+
+Class : Class is a collection of data mumber and mumber function
+        or
+        Class Which is contain data member and member function in single entity
+        or
+        Class is like group which is store different different data members in it
+
+
+Object : object is an instance of Class
+         
+        if class in a data type then object is an instance or varible of class
+
+        using of object we can assess all the properties of class
+
+one class can have many object
+
